@@ -192,7 +192,7 @@ describe('Should test at a functional level', () => {
         cy.xpath(loc.SALDO.FN_XP_SALDO_CONTA('Carteira')).should('contain', '4.034,00')
     })
 
-    it('Should remove a transaction', () => {
+    it.only('Should remove a transaction', () => {
         cy.route({
             method: 'DELETE',
             url: '/transacoes/**',
@@ -201,7 +201,6 @@ describe('Should test at a functional level', () => {
         }).as('del')
 
         cy.get(loc.MENU.EXTRATO).click()
-        cy.get(loc.MESSAGE).should('not.exist')
         cy.xpath(loc.EXTRATO.FN_XP_REMOVER_ELEMENTO('Movimentacao para exclusao')).click()
         cy.get(loc.MESSAGE).should('contain', 'sucesso')
     })
