@@ -3,7 +3,7 @@
 describe('Cypress basics', () => {
     it('Should visit a page and assert title', () => {
         cy.visit('https://www.wcaquino.me/cypress/componentes.html')
-        cy.title().should('be.equal','Campo de treinamento')
+        cy.title().should('be.equal','Campo de Treinamento')
         cy.title().then(title => {
             console.log(title)
         

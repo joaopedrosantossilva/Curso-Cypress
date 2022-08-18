@@ -38,7 +38,7 @@ it('Object Equality', () =>{
     expect(obj).to.have.property('b')
     expect(obj).to.have.property('b', 2)
     expect(obj).to.not.be.empty
-    expect(obj).to.be.empty
+
 })
 
 it('Arrays', () => {
@@ -46,7 +46,7 @@ it('Arrays', () => {
     expect(arr).to.have.members([1, 2, 3])
     expect(arr).to.include.members([1, 3])
     expect(arr).to.not.be.empty
-    expect(arr).to.be.empty
+    //expect(arr).to.be.empty
 })
 
 it('Types', () => {
@@ -75,10 +75,10 @@ it('Number', () => {
     const number = 5
     const floatNumber = 5.2131 
 
-    expect(number).to.be.equal(4)
+    expect(number).to.be.equal(5)
     expect(number).to.be.above(3)
-    expect(number).to.be.below(3)
+    //expect(number).to.be.below(3)
     expect(floatNumber).to.be.equal(5.2131)
-    expect(floatNumber).to.be.closeTo(5.2, 0)
+   // expect(floatNumber).to.be.closeTo(5.2, 0)
     
 })

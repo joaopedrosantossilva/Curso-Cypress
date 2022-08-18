@@ -1,30 +1,43 @@
 const locators = {
     LOGIN: {
-        USER: cy.get('[data-test=email]'),
-        PASSWORD: cy.get('[data-test=passwd]'),
-        BTN_LOGIN: cy.get('.jumbotron button')
+        USER: '[data-test=email]',
+        PASSWORD: '[data-test=passwd]',
+        BTN_LOGIN: '.btn'
     },
     MENU: {
-        SETTINGS: cy.get('[data-test=menu-settings]'),
-        CONTAS: cy.get("a[href='/contas']"),
-        RESET:  cy.get("a[href='/reset']"),
-        MOVIMENTACAO: cy.get('[data-test=menu-movimentacao]')
+        HOME: '[data-test=menu-home]',
+        SETTINGS: '[data-test=menu-settings]',
+        CONTAS: '[href="/contas"]',
+        RESET: '[href="/reset"]',
+        MOVIMENTACAO: '[data-test=menu-movimentacao]',
+        EXTRATO: '[data-test=menu-extrato]'
     },
     CONTAS: {
-        NOME: cy.get('[data-test=nome]'),
-        BTN_SALVAR: cy.get('[alt=Salvar]')
+        NOME: '[data-test=nome]',
+        BTN_SALVAR: '.btn',
+        FN_XP_BTN_ALTERAR: nome => `//table//td[contains(., '${nome}')]/..//i[@class='far fa-edit']`
     },
     TELA_MOVIMENTACAO: {
-        DESCRICAO: cy.get('#descricao'),
-        VALOR: cy.get('[data-test=valor]'),
-        ENVOLVIDO: cy.get('[data-test=envolvido]'),
-        CONTA_PARA_MOVIMENTACAO: cy.get('[data-test=conta]'),
-        STATUS: cy.get('[data-test=status]'),
-        BTN_SALVAR: cy.get('button[alt=\'Salvar\']')
+        DESCRICAO: '[data-test=descricao]',
+        VALOR: '[data-test=valor]',
+        INTERESSADO: '[data-test=envolvido]',
+        CONTA: '[data-test=conta]',
+        STATUS: '[data-test=status]',
+        BTN_SALVAR: '.btn-primary'
     },
-
-    MESSAGE: cy.get('#toast-container'),
-    CLOSE_MESSAGE: cy.get('.toast-close-button')
+    EXTRATO: {
+        LINHAS: '.list-group > li',
+        FN_XP_BUSCA_ELEMENTO: (conta, saldo) => `//span[contains(., '${conta}')]/following-sibling::small[contains(., '${saldo}')]`,
+        FN_XP_REMOVER_ELEMENTO: conta => `//span[contains(., '${conta}')]/../../..//i[@class='far fa-trash-alt']`,
+        FN_XP_ALTERAR_ELEMENTO: conta => `//span[contains(., '${conta}')]/../../..//i[@class='fas fa-edit']`,
+        FN_XP_LINHA: desc => `//span[contains(., '${desc}')]/../../../..`
+    },
+    SALDO: {
+        FN_XP_SALDO_CONTA: nome => `//td[contains(., '${nome}')]/../td[2]`
+    },
+    MESSAGE: '.toast-message',
+    MESSAGE_ERROR: '.toast-error',
+    CLOSE_MESSAGE: '.toast-close-button'
 }
 
 export default locators;
